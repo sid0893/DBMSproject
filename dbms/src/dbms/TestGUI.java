@@ -19,10 +19,12 @@ public class TestGUI extends javax.swing.JFrame {
      * Creates new form TestGUI
      */
     public static TestGUI mTestGUI;
+
     //static final String JDBC_DRIVER = "com.mysql.jdbc.Driver";  
     //static final String DB_URL = "jdbc:mysql://localhost/dbms/";
     //static final String USER = "username";
     //static final String PASS = "password";
+
     public TestGUI() {
         initComponents();
     }
@@ -89,9 +91,9 @@ public class TestGUI extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap(79, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(operationComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(tableComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(tableComboBox, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(operationComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addComponent(proceedButton)
                 .addGap(39, 39, 39)
@@ -112,7 +114,7 @@ public class TestGUI extends javax.swing.JFrame {
         int operation = operationComboBox.getSelectedIndex();
         int table = tableComboBox.getSelectedIndex();
         mTestGUI.setVisible(false);
-        OperationPerform mOperationPerform = new OperationPerform(operation,table);
+        OperationPerform mOperationPerform = new OperationPerform(operation, table);
         mOperationPerform.setVisible(true);
         //System.out.println(operation);
     }//GEN-LAST:event_proceedButtonActionPerformed
@@ -122,61 +124,61 @@ public class TestGUI extends javax.swing.JFrame {
      */
     public static void main(String args[]) {
 
-        
         Connection conn = null;
         Statement stmt = null;
-        try{
+        try {
       //STEP 2: Register JDBC driver
-      //Class.forName("com.mysql.jdbc.Driver");
-        DriverManager.registerDriver(new com.mysql.jdbc.Driver());
-      //STEP 3: Open a connection
-      System.out.println("Connecting to database...");
-      //conn = DriverManager.getConnection(DB_URL,USER,PASS);
-      conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/dbms?user=dbms&password=123");
+            //Class.forName("com.mysql.jdbc.Driver");
+            DriverManager.registerDriver(new com.mysql.jdbc.Driver());
+            //STEP 3: Open a connection
+            System.out.println("Connecting to database...");
+            //conn = DriverManager.getConnection(DB_URL,USER,PASS);
+            conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/Hospital?user=dbms&password=123");
 
-      //STEP 4: Execute a query
-      System.out.println("Creating statement...");
-      stmt = conn.createStatement();
-      String sql;
-      sql = "SELECT name, id, age FROM emp";
-      ResultSet rs = stmt.executeQuery(sql);
-      while(rs.next()){
-         //Retrieve by column name
-          String name = rs.getString("name");
-         int id  = rs.getInt("id");
-         int age = rs.getInt("age");
-         
+            //STEP 4: Execute a query
+            System.out.println("Creating statement...");
+            stmt = conn.createStatement();
+            String sql;
+            sql = "SELECT d_id,d_name,speciality FROM doctor";
+            ResultSet rs = stmt.executeQuery(sql);
+            while (rs.next()) {
+                //Retrieve by column name
+                int name = rs.getInt("d_id");
+                String id = rs.getString("d_name");
+                String age = rs.getString("speciality");
+
          //String last = rs.getString("last");
-
-         //Display values
-         System.out.print("ID: " + id);
-         System.out.print(", Age: " + age);
-         System.out.println(", First: " + name);
-         //System.out.println(", Last: " + last);
-      }
-      rs.close();
-      stmt.close();
-      conn.close();
-   }catch(SQLException se){
-      //Handle errors for JDBC
-      se.printStackTrace();
-   }catch(Exception e){
-      //Handle errors for Class.forName
-      e.printStackTrace();
-   }finally{
-      //finally block used to close resources
-      try{
-         if(stmt!=null)
+                //Display values
+                System.out.print("ID: " + id);
+                System.out.print(", name: " + age);
+                System.out.println(", speciality: " + name);
+                //System.out.println(", Last: " + last);
+            }
+            rs.close();
             stmt.close();
-      }catch(SQLException se2){
-      }// nothing we can do
-      try{
-         if(conn!=null)
             conn.close();
-      }catch(SQLException se){
-         se.printStackTrace();
-      }//end finally try
-   }//end try
+        } catch (SQLException se) {
+            //Handle errors for JDBC
+            se.printStackTrace();
+        } catch (Exception e) {
+            //Handle errors for Class.forName
+            e.printStackTrace();
+        } finally {
+            //finally block used to close resources
+            try {
+                if (stmt != null) {
+                    stmt.close();
+                }
+            } catch (SQLException se2) {
+            }// nothing we can do
+            try {
+                if (conn != null) {
+                    conn.close();
+                }
+            } catch (SQLException se) {
+                se.printStackTrace();
+            }//end finally try
+        }//end try
         System.out.println("Goodbye!");
 //        java.awt.EventQueue.invokeLater(new Runnable() {
 //            public void run() {
@@ -187,7 +189,7 @@ public class TestGUI extends javax.swing.JFrame {
 //                //mTestGUI.setExtendedState(mTestGUI.getExtendedState() | JFrame.MAXIMIZED_BOTH);
 //            }
 //        });
-        
+
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
         /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
