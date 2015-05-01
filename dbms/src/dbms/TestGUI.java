@@ -174,7 +174,7 @@ public class TestGUI extends javax.swing.JFrame {
         //</editor-fold>
 
         /* Create and display the form */
-        mTestGUI = new TestGUI();
+        //mTestGUI = new TestGUI();
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
                 mTestGUI.setVisible(true);
