@@ -37,22 +37,14 @@ public class TestGUI extends javax.swing.JFrame {
     private void initComponents() {
 
         tableChoice = new javax.swing.JPopupMenu();
-        searchButton = new javax.swing.JButton();
         completeDatabaseButton = new javax.swing.JButton();
-        searchButton1 = new javax.swing.JButton();
-        searchButton2 = new javax.swing.JButton();
-        searchButton3 = new javax.swing.JButton();
+        proceedButton = new javax.swing.JButton();
+        operationComboBox = new javax.swing.JComboBox();
+        tableComboBox = new javax.swing.JComboBox();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Database Management System");
         setBackground(new java.awt.Color(0, 255, 204));
-
-        searchButton.setText("Insert");
-        searchButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                searchButtonActionPerformed(evt);
-            }
-        });
 
         completeDatabaseButton.setText("View Complete Database");
         completeDatabaseButton.addActionListener(new java.awt.event.ActionListener() {
@@ -61,57 +53,50 @@ public class TestGUI extends javax.swing.JFrame {
             }
         });
 
-        searchButton1.setText("Delete");
-        searchButton1.addActionListener(new java.awt.event.ActionListener() {
+        proceedButton.setText("Proceed");
+        proceedButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                searchButton1ActionPerformed(evt);
+                proceedButtonActionPerformed(evt);
             }
         });
 
-        searchButton2.setText("Update");
-        searchButton2.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                searchButton2ActionPerformed(evt);
-            }
-        });
+        operationComboBox.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Search", "Insert", "Delete", "Update", " " }));
 
-        searchButton3.setText("Run Query");
-        searchButton3.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                searchButton3ActionPerformed(evt);
-            }
-        });
+        tableComboBox.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "doctor", "test", "ward", "test_undertaken", "treatment", "tr_followed", "speciality", "pt_examined_by", "general_physician", "patient" }));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(34, Short.MAX_VALUE)
-                .addComponent(searchButton)
-                .addGap(22, 22, 22)
+            .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(completeDatabaseButton)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(searchButton1)
-                        .addGap(31, 31, 31)
-                        .addComponent(searchButton2)
-                        .addGap(18, 18, 18)
-                        .addComponent(searchButton3)))
-                .addGap(46, 46, 46))
+                        .addGap(97, 97, 97)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(106, 106, 106)
+                                .addComponent(proceedButton))
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(operationComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(105, 105, 105)
+                                .addComponent(tableComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(153, 153, 153)
+                        .addComponent(completeDatabaseButton)))
+                .addContainerGap(41, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(42, 42, 42)
+                .addContainerGap(79, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(searchButton)
-                    .addComponent(searchButton3)
-                    .addComponent(searchButton2)
-                    .addComponent(searchButton1))
-                .addGap(51, 51, 51)
+                    .addComponent(operationComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(tableComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addComponent(proceedButton)
+                .addGap(39, 39, 39)
                 .addComponent(completeDatabaseButton)
-                .addContainerGap(161, Short.MAX_VALUE))
+                .addGap(91, 91, 91))
         );
 
         pack();
@@ -122,27 +107,15 @@ public class TestGUI extends javax.swing.JFrame {
         new CompleteDatabase().setVisible(true);
     }//GEN-LAST:event_completeDatabaseButtonActionPerformed
 
-    private void searchButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_searchButtonActionPerformed
+    private void proceedButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_proceedButtonActionPerformed
         // TODO add your handling code here:
-        this.setVisible(false);
-        Search mSearch = new Search();
-        mSearch.setLocationRelativeTo(null);
-        mSearch.setVisible(true);
-        mSearch.setExtendedState(mSearch.getExtendedState() | JFrame.MAXIMIZED_BOTH);
-    }//GEN-LAST:event_searchButtonActionPerformed
-
-    private void searchButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_searchButton1ActionPerformed
-        // TODO add your handling code here:
-      
-    }//GEN-LAST:event_searchButton1ActionPerformed
-
-    private void searchButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_searchButton2ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_searchButton2ActionPerformed
-
-    private void searchButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_searchButton3ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_searchButton3ActionPerformed
+        int operation = operationComboBox.getSelectedIndex();
+        int table = tableComboBox.getSelectedIndex();
+        mTestGUI.setVisible(false);
+        OperationPerform mOperationPerform = new OperationPerform(operation,table);
+        mOperationPerform.setVisible(true);
+        //System.out.println(operation);
+    }//GEN-LAST:event_proceedButtonActionPerformed
 
     /**
      * @param args the command line arguments
@@ -251,10 +224,9 @@ public class TestGUI extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton completeDatabaseButton;
-    private javax.swing.JButton searchButton;
-    private javax.swing.JButton searchButton1;
-    private javax.swing.JButton searchButton2;
-    private javax.swing.JButton searchButton3;
+    private javax.swing.JComboBox operationComboBox;
+    private javax.swing.JButton proceedButton;
     private javax.swing.JPopupMenu tableChoice;
+    private javax.swing.JComboBox tableComboBox;
     // End of variables declaration//GEN-END:variables
 }
