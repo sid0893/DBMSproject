@@ -9,16 +9,16 @@ import GUIs.*;
 import java.awt.Color;
 import javax.swing.JFrame;
 import java.sql.*;
-import tables.Doctor;
-import tables.GeneralPhysician;
-import tables.Patient;
-import tables.PtExaminedBy;
-import tables.Speciality;
-import tables.Test;
-import tables.TestUndertaken;
-import tables.TrFollowed;
-import tables.Treatment;
-import tables.Ward;
+//import tables.Doctor;
+//import tables.GeneralPhysician;
+//import tables.Patient;
+//import tables.PtExaminedBy;
+//import tables.Speciality;
+//import tables.Test;
+//import tables.TestUndertaken;
+//import tables.TrFollowed;
+//import tables.Treatment;
+//import tables.Ward;
 
 /**
  *
@@ -53,7 +53,7 @@ public class TestGUI extends javax.swing.JFrame {
 
             System.out.println("Connecting to database...");
 
-            conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/dbms?user=dbms&password=123");
+            conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/Hospital?user=dbms&password=123");
 
             stmt = conn.createStatement();
             System.out.println("stmt created");
