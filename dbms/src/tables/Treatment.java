@@ -5,12 +5,25 @@
  */
 package tables;
 
+import java.awt.Label;
+import java.sql.Statement;
+import javax.swing.JFrame;
+
 /**
  *
  * @author siddharth
  */
 public class Treatment extends Table{
 
+    Statement mStatement;
+    JFrame container;
+    Label mLabel;
+    public Treatment(Statement s, JFrame jf){
+        mStatement = s;
+        container = jf;
+        mLabel = new Label("Attribute: tr_id, t_name");
+    }
+    
     @Override
     public void insert() {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.

@@ -5,6 +5,19 @@
  */
 package dbms;
 
+import java.awt.Container;
+import java.awt.Dimension;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.SQLException;
+import java.sql.Statement;
+import javax.swing.JButton;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
+import javax.swing.JTextField;
+import javax.swing.SpringLayout;
+import tables.*;
+
 /**
  *
  * @author siddharth
@@ -14,70 +27,90 @@ public class OperationPerform extends javax.swing.JFrame {
     /**
      * Creates new form OperationPerform
      */
-    int operation,table;
-    public OperationPerform(int op,int tab) {
+    int operation, table;
+    Table mTable;
+    Connection conn = null;
+    Statement stmt = null;
+    JTextField[] insert=null;
+
+    public OperationPerform(int op, int tab) {
         operation = op;
         table = tab;
+        
         initComponents();
         inflateFrame();
     }
+     public void initialiseJDBC() {
+        try {
 
-    private void inflateFrame(){
-        switch(operation){
-            case 0: 
-                switch(table){
-                    case 0:
-                    case 1:
-                    case 2:
-                    case 3:
-                    case 4:
-                    case 5:
-                    case 6:
-                    case 7:
-                    case 8:
-                    case 9:
-                }break;
-            case 1: 
-                switch(table){
-                    case 0:
-                    case 1:
-                    case 2:
-                    case 3:
-                    case 4:
-                    case 5:
-                    case 6:
-                    case 7:
-                    case 8:
-                    case 9:
-                }break;
-            case 2: 
-                switch(table){
-                    case 0:
-                    case 1:
-                    case 2:
-                    case 3:
-                    case 4:
-                    case 5:
-                    case 6:
-                    case 7:
-                    case 8:
-                    case 9:
-                }break;
-            case 3: 
-                switch(table){
-                    case 0:
-                    case 1:
-                    case 2:
-                    case 3:
-                    case 4:
-                    case 5:
-                    case 6:
-                    case 7:
-                    case 8:
-                    case 9:
-                }break;
+            DriverManager.registerDriver(new com.mysql.jdbc.Driver());
+
+            System.out.println("Connecting to database...");
+
+            conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/dbms?user=dbms&password=123");
+
+            stmt = conn.createStatement();
+            
+        } catch (SQLException e) {
+            e.printStackTrace();
         }
     }
+
+    private void inflateFrame() {
+        
+
+        switch (table) {
+
+            case 0:
+                mTable = new Doctor(stmt,this);
+                break;
+            case 1:
+                mTable = new Test(stmt,this);
+                break;
+            case 2:
+                mTable = new Ward(stmt,this);
+                break;
+            case 3:
+                mTable = new TestUndertaken(stmt,this);
+                break;
+            case 4:
+                mTable = new Treatment(stmt,this);
+                break;
+            case 5:
+                mTable = new TrFollowed(stmt,this);
+                break;
+            case 6:
+                mTable = new Speciality(stmt,this);
+                break;
+            case 7:
+
+                mTable = new PtExaminedBy(stmt,this);
+                break;
+            case 8:
+                mTable = new GeneralPhysician(stmt,this);
+                break;
+            case 9:
+                mTable = new Patient(stmt,this);
+                break;
+
+        }
+        switch (operation) {
+            case 0:
+                mTable.search();
+                break;
+            case 1:
+                insert = mTable.insert();
+                break;
+            case 2:
+                mTable.delete();
+                break;
+            case 3:
+                mTable.update();
+                break;
+
+        }
+    }
+
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -88,6 +121,16 @@ public class OperationPerform extends javax.swing.JFrame {
     private void initComponents() {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                formMouseClicked(evt);
+            }
+        });
+        addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
+            public void mouseMoved(java.awt.event.MouseEvent evt) {
+                formMouseMoved(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -103,10 +146,19 @@ public class OperationPerform extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void formMouseMoved(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_formMouseMoved
+        // TODO add your handling code here:
+        
+    }//GEN-LAST:event_formMouseMoved
+
+    private void formMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_formMouseClicked
+        // TODO add your handling code here:
+        System.out.println(evt.getX()+"  "+evt.getY());
+    }//GEN-LAST:event_formMouseClicked
+
     /**
      * @param args the command line arguments
      */
-    
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     // End of variables declaration//GEN-END:variables

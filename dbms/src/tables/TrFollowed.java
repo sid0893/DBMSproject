@@ -5,12 +5,24 @@
  */
 package tables;
 
+import java.awt.Label;
+import java.sql.Statement;
+import javax.swing.JFrame;
+
 /**
  *
  * @author siddharth
  */
 public class TrFollowed extends Table{
 
+    Statement mStatement;
+    JFrame container;
+    Label mLabel;
+    public TrFollowed(Statement s, JFrame jf){
+        mStatement = s;
+        container = jf;
+        mLabel = new Label("Attribute: tr_id, p_id, dev_by, result");
+    }
     @Override
     public void insert() {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
