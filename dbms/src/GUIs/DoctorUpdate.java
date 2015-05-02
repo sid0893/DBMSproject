@@ -315,7 +315,11 @@ public class DoctorUpdate extends javax.swing.JFrame {
                 try {
                     stmt.executeUpdate(sql);
                 } catch (SQLException ex) {
+                    jLabel8.setText(ex.getMessage());
+                    jLabel8.setVisible(true);
                     Logger.getLogger(DoctorUpdate.class.getName()).log(Level.SEVERE, null, ex);
+                } catch(NumberFormatException e){
+                    jLabel8.setText(e.getMessage());
                 }
                 
                 try {
