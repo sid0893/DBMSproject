@@ -30,8 +30,11 @@ public class TestGUI extends javax.swing.JFrame {
      * Creates new form TestGUI
      */
     public static TestGUI mTestGUI;
+
     Connection conn = null;
     Statement stmt = null;
+
+
 
     //static final String JDBC_DRIVER = "com.mysql.jdbc.Driver";  
     //static final String DB_URL = "jdbc:mysql://localhost/dbms/";
@@ -136,7 +139,8 @@ public class TestGUI extends javax.swing.JFrame {
 
     private void completeDatabaseButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_completeDatabaseButtonActionPerformed
         // TODO add your handling code here:
-        new CompleteDatabase().setVisible(true);
+        new ShowTables(stmt).setVisible(true);
+        this.setVisible(false);
     }//GEN-LAST:event_completeDatabaseButtonActionPerformed
 
     private void proceedButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_proceedButtonActionPerformed
@@ -338,10 +342,15 @@ public class TestGUI extends javax.swing.JFrame {
 
         }
         mTestGUI.setVisible(false);
+
 //        OperationPerform mOperationPerform = new OperationPerform(operation,table);
 //        mOperationPerform.setVisible(true);
 //        mOperationPerform.setSize(400, 350);
 //        mOperationPerform.setLocationRelativeTo(null);
+
+
+//        OperationPerform mOperationPerform = new OperationPerform(operation, table);
+//        mOperationPerform.setVisible(true);
 
         //System.out.println(operation);
     }//GEN-LAST:event_proceedButtonActionPerformed
@@ -350,6 +359,7 @@ public class TestGUI extends javax.swing.JFrame {
      * @param args the command line arguments
      */
     public static void main(String args[]) {
+
 
 //        Connection conn = null;
 //        Statement stmt = null;
@@ -403,6 +413,9 @@ public class TestGUI extends javax.swing.JFrame {
 //      }//end finally try
 //   }//end try
         //System.out.println("Goodbye!");
+
+        
+
 //        java.awt.EventQueue.invokeLater(new Runnable() {
 //            public void run() {
 //                mTestGUI = new TestGUI();
