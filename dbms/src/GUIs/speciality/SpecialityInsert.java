@@ -93,13 +93,14 @@ public class SpecialityInsert extends javax.swing.JFrame {
                             .addComponent(jTextField1)
                             .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, 123, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(195, 195, 195)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(insertButton)))
-                    .addGroup(layout.createSequentialGroup()
                         .addGap(35, 35, 35)
-                        .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 96, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 96, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(199, 199, 199)
+                        .addComponent(insertButton))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(133, 133, 133)
+                        .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 239, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(131, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -117,9 +118,9 @@ public class SpecialityInsert extends javax.swing.JFrame {
                     .addComponent(jLabel2))
                 .addGap(42, 42, 42)
                 .addComponent(insertButton)
-                .addGap(18, 18, 18)
-                .addComponent(jLabel4)
-                .addContainerGap(124, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(105, Short.MAX_VALUE))
         );
 
         pack();
@@ -144,9 +145,9 @@ public class SpecialityInsert extends javax.swing.JFrame {
      
         try {
             sid = Integer.parseInt(jTextField1.getText());
-            mArrayList.add("p_id");
+            mArrayList.add("s_id");
             sname = jTextField2.getText();
-            mArrayList.add("p_name");
+            mArrayList.add("s_name");
             
             query += "insert into speciality(";
             for (int i = 0; i < mArrayList.size() - 1; i++) {
@@ -158,8 +159,10 @@ public class SpecialityInsert extends javax.swing.JFrame {
             jLabel4.setText("Insert successful");
         }catch(NumberFormatException e){
             jLabel4.setText(e.getMessage());
+            System.out.println(e.getMessage());
         }catch(SQLException e){
             jLabel4.setText(e.getMessage());
+            System.out.println(e.getMessage());
         }
 
     }//GEN-LAST:event_insertButtonActionPerformed

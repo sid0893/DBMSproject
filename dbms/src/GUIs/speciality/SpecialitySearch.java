@@ -3,8 +3,11 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package GUIs.Doctor;
+package GUIs.speciality;
 
+import GUIs.Wards.*;
+import GUIs.Patient.*;
+import GUIs.Doctor.*;
 import dbms.TestGUI;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -19,17 +22,17 @@ import net.proteanit.sql.DbUtils;
  *
  * @author siddharth
  */
-public class DoctorSearch extends javax.swing.JFrame {
+public class SpecialitySearch extends javax.swing.JFrame {
 
     /**
      * Creates new form DoctorSearch
      */
     Statement stmt;
 
-    public DoctorSearch(Statement s) {
+    public SpecialitySearch(Statement s) {
         initComponents();
         jLabel3.setVisible(false);
-        Doctor.setVisible(false);
+        Patient.setVisible(false);
         stmt = s;
     }
 
@@ -49,12 +52,11 @@ public class DoctorSearch extends javax.swing.JFrame {
         jLabel2 = new javax.swing.JLabel();
         jButton2 = new javax.swing.JButton();
         jScrollPane3 = new javax.swing.JScrollPane();
-        Doctor = new javax.swing.JTable();
+        Patient = new javax.swing.JTable();
         jButton1 = new javax.swing.JButton();
-        jCheckBox5 = new javax.swing.JCheckBox();
-        jCheckBox6 = new javax.swing.JCheckBox();
         jCheckBox4 = new javax.swing.JCheckBox();
         jLabel3 = new javax.swing.JLabel();
+        jCheckBox7 = new javax.swing.JCheckBox();
 
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -82,7 +84,7 @@ public class DoctorSearch extends javax.swing.JFrame {
             }
         });
 
-        Doctor.setModel(new javax.swing.table.DefaultTableModel(
+        Patient.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
                 {null, null, null, null},
@@ -93,7 +95,7 @@ public class DoctorSearch extends javax.swing.JFrame {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
-        jScrollPane3.setViewportView(Doctor);
+        jScrollPane3.setViewportView(Patient);
 
         jButton1.setText("Go");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
@@ -102,47 +104,49 @@ public class DoctorSearch extends javax.swing.JFrame {
             }
         });
 
-        jCheckBox5.setText("d_id");
-        jCheckBox5.addActionListener(new java.awt.event.ActionListener() {
+        jCheckBox4.setText("s_name");
+        jCheckBox4.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jCheckBox5ActionPerformed(evt);
+                jCheckBox4ActionPerformed(evt);
             }
         });
 
-        jCheckBox6.setText("d_name");
+        jLabel3.setText("error message: ");
 
-        jCheckBox4.setText("speciality");
+        jCheckBox7.setText("s_id");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addGap(0, 27, Short.MAX_VALUE)
+                .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 368, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(23, 23, 23))
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap())
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(17, 17, 17)
+                        .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 96, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(79, 79, 79)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jCheckBox5, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jCheckBox6, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jCheckBox4, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addComponent(jCheckBox7, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(50, 50, 50)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(jLabel2)
                                     .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 99, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                            .addComponent(jLabel1)))
+                            .addComponent(jLabel1)
+                            .addComponent(jCheckBox4, javax.swing.GroupLayout.PREFERRED_SIZE, 121, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(17, 17, 17)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 96, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 368, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(170, 170, 170)
-                        .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 69, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jLabel3)))
-                .addContainerGap(33, Short.MAX_VALUE))
+                        .addGap(160, 160, 160)
+                        .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 69, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -152,25 +156,23 @@ public class DoctorSearch extends javax.swing.JFrame {
                         .addGap(95, 95, 95)
                         .addComponent(jLabel2)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jCheckBox7)))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(14, 14, 14)
                         .addComponent(jButton2)
                         .addGap(35, 35, 35)
-                        .addComponent(jLabel1)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jCheckBox5, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jCheckBox6, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jLabel1)))
+                .addGap(6, 6, 6)
                 .addComponent(jCheckBox4)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGap(36, 36, 36)
                 .addComponent(jButton1)
-                .addGap(8, 8, 8)
-                .addComponent(jLabel3)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 81, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(160, Short.MAX_VALUE))
+                .addContainerGap(176, Short.MAX_VALUE))
         );
 
         pack();
@@ -184,19 +186,19 @@ public class DoctorSearch extends javax.swing.JFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
-        Doctor.setVisible(false);
+        Patient.setVisible(false);
         ArrayList<String> att = new ArrayList<String>();
         int flag = 0;
         String sql = "SELECT ";
-        if (jCheckBox5.isSelected()) {
-            att.add("d_id");
+        if (jCheckBox7.isSelected()) {
+            att.add("s_id");
         }
-        if (jCheckBox6.isSelected()) {
-            att.add("d_name");
-        }
+        
         if (jCheckBox4.isSelected()) {
-            att.add("speciality");
+            att.add("s_name");
         }
+       
+        
         if (att.isEmpty()) {
             jLabel3.setText("Please select an attribute");
             jLabel3.setVisible(true);
@@ -207,7 +209,7 @@ public class DoctorSearch extends javax.swing.JFrame {
                     sql += ", " + att.get(i);
                 }
             }
-            sql+=" FROM doctor";
+            sql+=" FROM speciality";
             if(jTextField1.getText().equals("")){
                 sql+=";";
             }
@@ -219,31 +221,31 @@ public class DoctorSearch extends javax.swing.JFrame {
             try {
                 rs = stmt.executeQuery(sql);
             } catch (SQLException ex) {
-                Logger.getLogger(DoctorSearch.class.getName()).log(Level.SEVERE, null, ex);
-                jLabel3.setText(ex.getMessage());
+                Logger.getLogger(SpecialitySearch.class.getName()).log(Level.SEVERE, null, ex);
+                jLabel3.setText("Query failed: "+ex.getMessage());
                 jLabel3.setVisible(true);
+                System.out.println(ex.getMessage());
             }
-            Doctor.setModel(DbUtils.resultSetToTableModel(rs));
-            Doctor.setVisible(true);
+            Patient.setModel(DbUtils.resultSetToTableModel(rs));
+            Patient.setVisible(true);
         }
 
     }//GEN-LAST:event_jButton1ActionPerformed
 
-    private void jCheckBox5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBox5ActionPerformed
+    private void jCheckBox4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBox4ActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jCheckBox5ActionPerformed
+    }//GEN-LAST:event_jCheckBox4ActionPerformed
 
     /**
      * @param args the command line arguments
      */
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JTable Doctor;
+    private javax.swing.JTable Patient;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JCheckBox jCheckBox4;
-    private javax.swing.JCheckBox jCheckBox5;
-    private javax.swing.JCheckBox jCheckBox6;
+    private javax.swing.JCheckBox jCheckBox7;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
