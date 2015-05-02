@@ -5,8 +5,7 @@
  */
 package dbms;
 
-import GUIs.Doctor.Doctor;
-import GUIs.Doctor.DoctorUpdate;
+
 import GUIs.Doctor.DoctorInsert;
 import GUIs.Doctor.DoctorDelete;
 import java.awt.Color;

@@ -3,8 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package GUIs.speciality;
-
+package GUIs.PtExaminedBy;
 
 import dbms.TestGUI;
 import java.sql.SQLException;
@@ -14,13 +13,13 @@ import java.sql.Statement;
  *
  * @author siddharth
  */
-public class SpecialityDelete extends javax.swing.JFrame {
+public class PtExaminedByDelete extends javax.swing.JFrame {
 
     /**
      * Creates new form DoctorDelete
      */
     Statement stmt;
-    public  SpecialityDelete(Statement s) {
+    public  PtExaminedByDelete(Statement s) {
         initComponents();
         stmt = s;
     }
@@ -48,7 +47,7 @@ public class SpecialityDelete extends javax.swing.JFrame {
         jLabel1.setText("Attributes:");
 
         jList1.setModel(new javax.swing.AbstractListModel() {
-            String[] strings = { "s_id (int)", "s_name (String)" };
+            String[] strings = { "p_id (int)", "d_id (int)", " " };
             public int getSize() { return strings.length; }
             public Object getElementAt(int i) { return strings[i]; }
         });
@@ -141,7 +140,7 @@ public class SpecialityDelete extends javax.swing.JFrame {
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
         String condition = jTextField1.getText();
-        String query = "delete from ward where "+condition+";";
+        String query = "delete from pt_examined_by where "+condition+";";
         try{
             //String query = "insert into doctor(d_id,d_name,speciality) values ("+id+",'"+name+"',"+speciality+");";          
             stmt.executeUpdate(query);
