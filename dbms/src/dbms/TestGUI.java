@@ -5,13 +5,22 @@
  */
 package dbms;
 
+<<<<<<< HEAD
 import GUIs.Doctor.DoctorInsert;
 import GUIs.Doctor.DoctorDelete;
 import GUIs.Doctor.DoctorSearch;
 import GUIs.Doctor.DoctorUpdate;
+=======
+import GUIs.Doctor.Doctor;
+import GUIs.Doctor.DoctorUpdate;
+import GUIs.Doctor.DoctorInsert;
+import GUIs.Doctor.DoctorDelete;
+>>>>>>> b0da754917205756dfff64e95a2731e10d0b0a47
 import java.awt.Color;
 import javax.swing.JFrame;
 import java.sql.*;
+
+
 //import tables.Doctor;
 //import tables.GeneralPhysician;
 //import tables.Patient;
