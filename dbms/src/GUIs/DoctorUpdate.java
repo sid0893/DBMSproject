@@ -236,7 +236,7 @@ public class DoctorUpdate extends javax.swing.JFrame {
             flag++;
             if(flag==2)
                 query += ", ";
-            name = jTextField1.getText()==null?null:jTextField2.getText();
+            name = jTextField2.getText()==null?null:jTextField2.getText();
             query += "d_name = '"+name+"'";
         }
         if(jCheckBox4.isSelected()){
@@ -244,7 +244,7 @@ public class DoctorUpdate extends javax.swing.JFrame {
             if(flag>=1){
                 query += ", ";
             }
-            speciality = jTextField1.getText()==null?null:Integer.parseInt(jTextField3.getText());
+            speciality = jTextField4.getText()==null?null:Integer.parseInt(jTextField4.getText());
             query += "speciality = "+speciality;
         }
         if(flag>0){
