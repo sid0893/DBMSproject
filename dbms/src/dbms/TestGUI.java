@@ -5,7 +5,10 @@
  */
 package dbms;
 
-import GUIs.*;
+import GUIs.Doctor.DoctorInsert;
+import GUIs.Doctor.DoctorDelete;
+import GUIs.Doctor.DoctorSearch;
+import GUIs.Doctor.DoctorUpdate;
 import java.awt.Color;
 import javax.swing.JFrame;
 import java.sql.*;
