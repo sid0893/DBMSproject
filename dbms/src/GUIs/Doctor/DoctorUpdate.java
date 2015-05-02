@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package GUIs;
+package GUIs.Doctor;
 
 import dbms.TestGUI;
 import java.sql.SQLException;
@@ -241,16 +241,16 @@ public class DoctorUpdate extends javax.swing.JFrame {
         }
         if(jCheckBox4.isSelected()){
             flag++;
-            if(flag>=1){
+            if(flag>1){
                 query += ", ";
             }
             speciality = jTextField4.getText()==null?null:Integer.parseInt(jTextField4.getText());
             query += "speciality = "+speciality;
         }
         if(flag>0){
-            query += " where "+jTextField3.getText();
+            query += " where "+jTextField3.getText()+";";
             try {
-                stmt.execute(query);
+                stmt.executeUpdate(query);
                 jLabel5.setText("Update Successful");
             } catch (SQLException ex) {
                 jLabel5.setText("Update Failed");
