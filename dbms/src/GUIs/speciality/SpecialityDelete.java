@@ -141,7 +141,7 @@ public class SpecialityDelete extends javax.swing.JFrame {
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
         String condition = jTextField1.getText();
-        String query = "delete from ward where "+condition+";";
+        String query = "delete from speciality where "+condition+";";
         try{
             //String query = "insert into doctor(d_id,d_name,speciality) values ("+id+",'"+name+"',"+speciality+");";          
             stmt.executeUpdate(query);

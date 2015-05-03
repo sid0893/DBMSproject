@@ -6,8 +6,26 @@
 package dbms;
 
 
+import GUIs.Doctor.DoctorSearch;
+
+
+import GUIs.Doctor.DoctorUpdate;
+
 import GUIs.Doctor.DoctorInsert;
 import GUIs.Doctor.DoctorDelete;
+import GUIs.Patient.PatientDelete;
+import GUIs.Patient.PatientInsert;
+import GUIs.Patient.PatientSearch;
+import GUIs.Patient.PatientUpdate;
+import GUIs.Wards.WardDelete;
+import GUIs.Wards.WardInsert;
+import GUIs.Wards.WardSearch;
+import GUIs.Wards.WardUpdate;
+import GUIs.speciality.SpecialityDelete;
+import GUIs.speciality.SpecialityInsert;
+import GUIs.speciality.SpecialitySearch;
+import GUIs.speciality.SpecialityUpdate;
+
 import java.awt.Color;
 import javax.swing.JFrame;
 import java.sql.*;
@@ -184,6 +202,7 @@ public class TestGUI extends javax.swing.JFrame {
                 //mTable = new Test(stmt,this);
                 switch (operation) {
                     case 0:
+                        
                         //mTable.search();
                         break;
                     case 1:
@@ -203,15 +222,23 @@ public class TestGUI extends javax.swing.JFrame {
                 switch (operation) {
                     case 0:
                         //mTable.search();
+                        WardSearch s = new WardSearch(stmt);
+                        s.setVisible(true);
                         break;
-                    case 1:
+                    case 1: 
                         //insert = mTable.insert();
+                        WardInsert i = new WardInsert(stmt);
+                        i.setVisible(true);
                         break;
                     case 2:
                         //mTable.delete();
+                        WardDelete d = new WardDelete(stmt);
+                        d.setVisible(true);
                         break;
                     case 3:
                         //mTable.update();
+                        WardUpdate u = new WardUpdate(stmt);
+                        u.setVisible(true);
                         break;
 
                 }
@@ -274,16 +301,24 @@ public class TestGUI extends javax.swing.JFrame {
                 //mTable = new Speciality(stmt,this);
                 switch (operation) {
                     case 0:
+                        SpecialitySearch search = new SpecialitySearch(stmt);
+                        search.setVisible(true);
                         //mTable.search();
                         break;
                     case 1:
+                        SpecialityInsert i = new SpecialityInsert(stmt);
+                        i.setVisible(true);
                         //insert = mTable.insert();
                         break;
                     case 2:
+                        SpecialityDelete d = new SpecialityDelete(stmt);
+                        d.setVisible(true);
                         //mTable.delete();
                         break;
                     case 3:
                         //mTable.update();
+                        SpecialityUpdate u = new SpecialityUpdate(stmt);
+                        u.setVisible(true);
                         break;
 
                 }
@@ -330,14 +365,26 @@ public class TestGUI extends javax.swing.JFrame {
                 switch (operation) {
                     case 0:
                         //mTable.search();
+                        PatientSearch mPatientSearch = new PatientSearch(stmt);
+                        mPatientSearch.setVisible(true);
+                        
                         break;
                     case 1:
-                        //insert = mTable.insert();
+                        PatientInsert mPatientInsert;
+                        mPatientInsert = new PatientInsert(stmt);
+                        mPatientInsert.setVisible(true);
+                        
                         break;
                     case 2:
+                        PatientDelete mPatientDelete = new PatientDelete(stmt);
+                        mPatientDelete.setVisible(true);
+                        
                         //mTable.delete();
                         break;
                     case 3:
+                        PatientUpdate mPatientUpdate = new PatientUpdate(stmt);
+                        mPatientUpdate.setVisible(true);
+                        
                         //mTable.update();
                         break;
 

@@ -180,9 +180,9 @@ public class TestUndertakenInsert extends javax.swing.JFrame {
 
         try {
             pid = Integer.parseInt(jTextField1.getText());
-            mArrayList.add("t_id");
+            mArrayList.add("p_id");
             tid = Integer.parseInt(jTextField2.getText());
-            mArrayList.add("t_name");
+            mArrayList.add("t_id");
             presby = Integer.parseInt(jTextField3.getText());
             mArrayList.add("pres_by");
             result = jTextField4.getText();

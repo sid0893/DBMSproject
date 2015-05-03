@@ -6,7 +6,6 @@
 package GUIs.TreatmentFollowed;
 
 
-import GUIs.TestUndertaken.*;
 import dbms.TestGUI;
 import java.sql.SQLException;
 import java.sql.Statement;
