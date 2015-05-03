@@ -98,6 +98,7 @@ public class TestGUI extends javax.swing.JFrame {
         proceedButton = new javax.swing.JButton();
         operationComboBox = new javax.swing.JComboBox();
         tableComboBox = new javax.swing.JComboBox();
+        jButton1 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Database Management System");
@@ -121,6 +122,13 @@ public class TestGUI extends javax.swing.JFrame {
 
         tableComboBox.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "doctor", "test", "ward", "test_undertaken", "treatment", "tr_followed", "speciality", "pt_examined_by", "general_physician", "patient" }));
 
+        jButton1.setText("Execute Complex Queries");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -139,7 +147,9 @@ public class TestGUI extends javax.swing.JFrame {
                                 .addComponent(tableComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(153, 153, 153)
-                        .addComponent(completeDatabaseButton)))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(completeDatabaseButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))))
                 .addContainerGap(41, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -153,7 +163,9 @@ public class TestGUI extends javax.swing.JFrame {
                 .addComponent(proceedButton)
                 .addGap(39, 39, 39)
                 .addComponent(completeDatabaseButton)
-                .addGap(91, 91, 91))
+                .addGap(18, 18, 18)
+                .addComponent(jButton1)
+                .addGap(44, 44, 44))
         );
 
         pack();
@@ -406,6 +418,12 @@ public class TestGUI extends javax.swing.JFrame {
         //System.out.println(operation);
     }//GEN-LAST:event_proceedButtonActionPerformed
 
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        // TODO add your handling code here:'
+        new ComplexQueries(stmt).setVisible(true);
+        this.setVisible(false);
+    }//GEN-LAST:event_jButton1ActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -514,6 +532,7 @@ public class TestGUI extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton completeDatabaseButton;
+    private javax.swing.JButton jButton1;
     private javax.swing.JComboBox operationComboBox;
     private javax.swing.JButton proceedButton;
     private javax.swing.JPopupMenu tableChoice;
