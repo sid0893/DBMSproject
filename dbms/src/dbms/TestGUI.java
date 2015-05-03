@@ -13,10 +13,34 @@ import GUIs.Doctor.DoctorUpdate;
 
 import GUIs.Doctor.DoctorInsert;
 import GUIs.Doctor.DoctorDelete;
+import GUIs.GeneralPhysician.GeneralPhysicianDelete;
+import GUIs.GeneralPhysician.GeneralPhysicianInsert;
+import GUIs.GeneralPhysician.GeneralPhysicianSearch;
+import GUIs.GeneralPhysician.GeneralPhysicianUpdate;
 import GUIs.Patient.PatientDelete;
 import GUIs.Patient.PatientInsert;
 import GUIs.Patient.PatientSearch;
 import GUIs.Patient.PatientUpdate;
+import GUIs.PtExaminedBy.PtExaminedByDelete;
+import GUIs.PtExaminedBy.PtExaminedByInsert;
+import GUIs.PtExaminedBy.PtExaminedBySearch;
+import GUIs.PtExaminedBy.PtExaminedByUpdate;
+import GUIs.Test.TestDelete;
+import GUIs.Test.TestInsert;
+import GUIs.Test.TestSearch;
+import GUIs.Test.TestUpdate;
+import GUIs.TestUndertaken.TestUndertakenDelete;
+import GUIs.TestUndertaken.TestUndertakenInsert;
+import GUIs.TestUndertaken.TestUndertakenSearch;
+import GUIs.TestUndertaken.TestUndertakenUpdate;
+import GUIs.Treatment.TreatmentDelete;
+import GUIs.Treatment.TreatmentInsert;
+import GUIs.Treatment.TreatmentSearch;
+import GUIs.Treatment.TreatmentUpdate;
+import GUIs.TreatmentFollowed.TreatmentFollowedDelete;
+import GUIs.TreatmentFollowed.TreatmentFollowedInsert;
+import GUIs.TreatmentFollowed.TreatmentFollowedSearch;
+import GUIs.TreatmentFollowed.TreatmentFollowedUpdate;
 import GUIs.Wards.WardDelete;
 import GUIs.Wards.WardInsert;
 import GUIs.Wards.WardSearch;
@@ -214,16 +238,23 @@ public class TestGUI extends javax.swing.JFrame {
                 //mTable = new Test(stmt,this);
                 switch (operation) {
                     case 0:
-                        
+                        TestSearch s = new TestSearch(stmt);
+                        s.setVisible(true);
                         //mTable.search();
                         break;
                     case 1:
+                        TestInsert i = new TestInsert(stmt);
+                        i.setVisible(true);
                         //insert = mTable.insert();
                         break;
                     case 2:
+                        TestDelete d = new TestDelete(stmt);
+                        d.setVisible(true);
                         //mTable.delete();
                         break;
                     case 3:
+                        TestUpdate u = new TestUpdate(stmt);
+                        u.setVisible(true);
                         //mTable.update();
                         break;
 
@@ -260,14 +291,23 @@ public class TestGUI extends javax.swing.JFrame {
                 switch (operation) {
                     case 0:
                         //mTable.search();
+                        TestUndertakenSearch s = new TestUndertakenSearch(stmt);
+                        s.setVisible(true);
                         break;
                     case 1:
                         //insert = mTable.insert();
+                        TestUndertakenInsert i = new TestUndertakenInsert(stmt);
+                        i.setVisible(true);
                         break;
                     case 2:
                         //mTable.delete();
+                        TestUndertakenDelete d = new TestUndertakenDelete(stmt);
+                        d.setVisible(true);
                         break;
+                        
                     case 3:
+                        TestUndertakenUpdate u = new TestUndertakenUpdate(stmt);
+                        u.setVisible(true);
                         //mTable.update();
                         break;
 
@@ -277,15 +317,23 @@ public class TestGUI extends javax.swing.JFrame {
                 //mTable = new Treatment(stmt,this);
                 switch (operation) {
                     case 0:
+                        TreatmentSearch search = new TreatmentSearch(stmt);
+                        search.setVisible(true);
                         //mTable.search();
                         break;
                     case 1:
+                        TreatmentInsert i = new TreatmentInsert(stmt);
+                        i.setVisible(true);
                         //insert = mTable.insert();
                         break;
                     case 2:
+                        TreatmentDelete d = new TreatmentDelete(stmt);
+                        d.setVisible(true);
                         //mTable.delete();
                         break;
                     case 3:
+                        TreatmentUpdate u = new TreatmentUpdate(stmt);
+                        u.setVisible(true);
                         //mTable.update();
                         break;
 
@@ -295,15 +343,23 @@ public class TestGUI extends javax.swing.JFrame {
                 //mTable = new TrFollowed(stmt,this);
                 switch (operation) {
                     case 0:
+                        TreatmentFollowedSearch  s = new TreatmentFollowedSearch(stmt);
+                        s.setVisible(true);
                         //mTable.search();
                         break;
                     case 1:
+                        TreatmentFollowedInsert i = new TreatmentFollowedInsert(stmt);
+                        i.setVisible(true);
                         //insert = mTable.insert();
                         break;
                     case 2:
+                        TreatmentFollowedDelete d = new TreatmentFollowedDelete(stmt);
+                        d.setVisible(true);
                         //mTable.delete();
                         break;
                     case 3:
+                        TreatmentFollowedUpdate u = new TreatmentFollowedUpdate(stmt);
+                        u.setVisible(true);
                         //mTable.update();
                         break;
 
@@ -341,14 +397,23 @@ public class TestGUI extends javax.swing.JFrame {
                 switch (operation) {
                     case 0:
                         //mTable.search();
+                        PtExaminedBySearch s = new PtExaminedBySearch(stmt);
+                        s.setVisible(true);
                         break;
+                        
                     case 1:
                         //insert = mTable.insert();
+                        PtExaminedByInsert i = new PtExaminedByInsert(stmt);
+                        i.setVisible(true);
                         break;
                     case 2:
+                        PtExaminedByDelete d = new PtExaminedByDelete(stmt);
+                        d.setVisible(true);
                         //mTable.delete();
                         break;
                     case 3:
+                        PtExaminedByUpdate u = new PtExaminedByUpdate(stmt);
+                        u.setVisible(true);
                         //mTable.update();
                         break;
 
@@ -357,18 +422,31 @@ public class TestGUI extends javax.swing.JFrame {
             case 8:
                 //mTable = new GeneralPhysician(stmt,this);
                 switch (operation) {
-                    case 0:
+                    case 0: 
+                        GeneralPhysicianSearch s = new GeneralPhysicianSearch(stmt);
+                        s.setVisible(true);
+
                         //mTable.search();
                         break;
                     case 1:
+                        GeneralPhysicianInsert i = new GeneralPhysicianInsert(stmt);
+                        i.setVisible(true);
+
                         //insert = mTable.insert();
                         break;
                     case 2:
+                        GeneralPhysicianDelete d = new GeneralPhysicianDelete(stmt);
+                        d.setVisible(true);
+
                         //mTable.delete();
                         break;
                     case 3:
+                        GeneralPhysicianUpdate u = new GeneralPhysicianUpdate(stmt);
+                        u.setVisible(true);
+
                         //mTable.update();
-                        break;
+                        
+                    
 
                 }
                 break;
