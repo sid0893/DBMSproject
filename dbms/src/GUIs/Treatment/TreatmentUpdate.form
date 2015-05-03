@@ -212,7 +212,7 @@
     </Component>
     <Component class="javax.swing.JCheckBox" name="jCheckBox5">
       <Properties>
-        <Property name="text" type="java.lang.String" value="w_id"/>
+        <Property name="text" type="java.lang.String" value="tr_id"/>
       </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jCheckBox5ActionPerformed"/>
@@ -220,7 +220,7 @@
     </Component>
     <Component class="javax.swing.JCheckBox" name="jCheckBox6">
       <Properties>
-        <Property name="text" type="java.lang.String" value="w_name"/>
+        <Property name="text" type="java.lang.String" value="t_name"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel6">

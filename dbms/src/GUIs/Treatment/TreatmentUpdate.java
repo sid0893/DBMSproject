@@ -3,8 +3,10 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package GUIs.speciality;
+package GUIs.Treatment;
 
+import GUIs.Test.*;
+import GUIs.speciality.*;
 import GUIs.Wards.*;
 import GUIs.Patient.*;
 import GUIs.Doctor.*;
@@ -21,14 +23,14 @@ import net.proteanit.sql.DbUtils;
  *
  * @author siddharth
  */
-public class SpecialityUpdate extends javax.swing.JFrame {
+public class TreatmentUpdate extends javax.swing.JFrame {
 
     /**
      * Creates new form DoctorUpdate
      */
     Statement stmt;
 
-    public SpecialityUpdate(Statement s) {
+    public TreatmentUpdate(Statement s) {
         initComponents();
         jLabel8.setVisible(false);
         Doctor.setVisible(false);
@@ -123,14 +125,14 @@ public class SpecialityUpdate extends javax.swing.JFrame {
             }
         });
 
-        jCheckBox5.setText("w_id");
+        jCheckBox5.setText("tr_id");
         jCheckBox5.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jCheckBox5ActionPerformed(evt);
             }
         });
 
-        jCheckBox6.setText("w_name");
+        jCheckBox6.setText("t_name");
 
         jLabel6.setText("=");
 
@@ -251,15 +253,15 @@ public class SpecialityUpdate extends javax.swing.JFrame {
         String rec_by;
         String name;
         ArrayList<String> att = new ArrayList<String>();
-        String sql = "update speciality set ";
-        String sql2 = "SELECT * FROM speciality WHERE ";
+        String sql = "update treatment set ";
+        String sql2 = "SELECT * FROM treatment WHERE ";
         if (jCheckBox5.isSelected()) {
             id = jTextField1.getText() == null ? null : Integer.parseInt(jTextField1.getText());
-            att.add("s_id=" + id);
+            att.add("tr_id=" + id);
         }
         if (jCheckBox6.isSelected()) {
             name = jTextField2.getText() == null ? null : jTextField2.getText();
-            att.add("s_name=" + name);
+            att.add("t_name=" + name);
         }
         
         
@@ -289,7 +291,7 @@ public class SpecialityUpdate extends javax.swing.JFrame {
                 } catch (SQLException ex) {
                     jLabel8.setText(ex.getMessage());
                     jLabel8.setVisible(true);
-                    Logger.getLogger(SpecialityUpdate.class.getName()).log(Level.SEVERE, null, ex);
+                    Logger.getLogger(TreatmentUpdate.class.getName()).log(Level.SEVERE, null, ex);
                 } catch(NumberFormatException e){
                     jLabel8.setText(e.getMessage());
                 }
